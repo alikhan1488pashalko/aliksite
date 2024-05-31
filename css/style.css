@@ -1,0 +1,172 @@
+/* Общие стили для всего тела страницы */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: url('background.png') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+/* Прелоадер */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 9999;
+    animation: fadeOut 1s forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+/* Контейнер с контентом */
+.container {
+    text-align: center;
+    padding: 20px;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+    animation-delay: 0.5s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Заголовок */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #004080;
+    border-radius: 25px; /* Закругленные углы */
+    margin: 10px 20px; /* Отступы */
+}
+
+header .header-left, header .header-right {
+    color: white;
+    font-size: 20px;
+}
+
+/* Кнопка меню */
+.menu-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+/* Заголовки */
+h1 {
+    font-size: 2.5em;
+    margin-top: 20px;
+}
+
+h2, h3 {
+    font-size: 1em;
+    margin: 20px 0;
+}
+
+h4 {
+    font-size: 3em;
+    margin: 20px 0;
+}
+
+/* Кнопки */
+.buttons {
+    margin: 20px 0;
+}
+
+.button {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #004080;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+/* Боковое меню */
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background-color: #004080;
+    overflow-x: hidden;
+    transition: width 0.5s;
+    padding-top: 60px;
+}
+
+.side-menu a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-menu a:hover {
+    background-color: #575757;
+}
+
+/* Кнопка закрытия меню */
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+
+/* Оверлей */
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-x: hidden;
+    transition: width 0.5s;
+}
+
+/* Скрытый чекбокс для управления боковым меню */
+#menu-toggle {
+    display: none;
+}
+
+/* CSS для управления боковым меню без JS */
+#menu-toggle:checked ~ .side-menu {
+    width: 250px;
+}
+
+#menu-toggle:checked ~ #overlay {
+    width: 100%;
+}
+
+/* Анимация для плавного открытия */
+#menu-toggle ~ .side-menu,
+#menu-toggle ~ #overlay {
+    transition: width 0.5s;
+}
+
+/* Метка для чекбокса */
+label[for="menu-toggle"] {
+    cursor: pointer;
+}
